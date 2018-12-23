@@ -5,8 +5,8 @@ from Snake.BrainySnake import *
 # input van het netwerk moet 11 blijven in de eerste laag (gelijk aan de lengte van de Brain_input array in een snake)
 # output van het netwerk moet 2 blijven in de laatste laag (zie uitwerking in brainysnake.change_dir_neural)
 # -1 betekend dat het de inputs gelijk zet aan de outputs van de vorige laag
-network_dict = {0: {'mode': "Linear", "input": 11, "output": 22, "bias": True, "activation": "ReLU6", "activation_params": []},
-                1: {'mode': "Linear", "input": -1, "output": 2, "bias": True, "activation": "HardTanh",
+network_dict = {0: {'mode': "Linear", "input": 11, "output": 16, "bias": True, "activation": "Sigmoid", "activation_params": []},
+                1: {'mode': "Linear", "input": -1, "output": 2, "bias": True, "activation": "Sigmoid",
                     "activation_params": [0, 1, False]}}
 
 window = pygame.display.set_mode((300, 200))  # groote van t scherm
@@ -21,7 +21,7 @@ number_of_generation = 30
 w, h = pygame.display.get_surface().get_size()
 naturalSelector = NaturalSelection(BrainSnake, w, h)  # init van het Genetic alg, args ( object, breedte scherm, hoogte scherm)
 naturalSelector.set_nn_layout(network_dict)  # zet de layout van het NeuralNetwerk wat de Snake gebruikt. (zie network_dict)
-naturalSelector.generate_first_population(1000)  # first pop
+naturalSelector.generate_first_population(500)  # first pop
 
 
 def generation_over(gen, highscore):
@@ -54,7 +54,8 @@ while True:
             snake.terminate_function()  # kijk of de snake niet doelloos rond draaid
             if not snake.is_alive:
                 dead += 1  # counts ded sneks
-                print('deadsnakes {}/{}'.format(dead,len(naturalSelector.current_population)))
+                print('deadsnakes {}/{} step:{}, fitness: {}'.format(dead, len(naturalSelector.current_population), snake.steps,
+                                                                     snake.global_fitness))
         if dead == len(naturalSelector.current_population):  # als iedereen dood is is generatie over
             generation_over(current_gen, naturalSelector.high_score)
             current_gen += 1
@@ -62,6 +63,6 @@ while True:
             dead = 0
     pygame.display.set_caption('neural snakes | generation {}'.format(current_gen))
     pygame.display.flip()
-    # fps.tick(10000)  # max speed of a game
+    #fps.tick(1)  # max speed of a game
     if current_gen >= number_of_generation:
         gameOver()

@@ -33,7 +33,6 @@ while True:
     if snake.move() == 1:
         score += 1
         print('score:  ', score)
-
     print(snake.brain_input)
     snake.update_brain_input()
     #print(snake.global_fitness, snake.local_fitness)

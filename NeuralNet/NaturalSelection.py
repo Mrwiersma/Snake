@@ -10,7 +10,7 @@ class NaturalSelection:
         self.nn_layout = None
 
         self.mutating = True
-        self.mutate_chance = 40
+        self.mutate_chance = 80
         self.mutate_impact = 0.1
         self.current_population = []
         self.new_population = []

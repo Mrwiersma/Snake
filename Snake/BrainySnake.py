@@ -15,6 +15,7 @@ class BrainSnake:
         self.score = 0
         self.steps = 0
         self.steps_to_food = 0
+        self.threshold = 0.6
 
         self.foodLoc = [-1, -1]
         self.food_on_screen = False
@@ -66,9 +67,11 @@ class BrainSnake:
 
     def change_dir_neural(self):  # vertaalt NN output tot richting
         x = self.brain(torch.Tensor(self.brain_input))
-        if x[0] > 0.9 < x[1]:
+        # x = x.detach().numpy()
+        if x[0] > x[1] and x[0] > self.threshold:
             self.dirNeural -= 1
-        elif x[0] < 0.9 > x[1]:
+
+        elif x[1] > x[0] and x[1] > self.threshold:
             self.dirNeural += 1
 
         if self.dirNeural < 0:
@@ -169,8 +172,9 @@ class BrainSnake:
         obstacle_south_west = min(southwest) if len(southwest) is not 0 else -1
         obstacle_north_west = min(northwest) if len(northwest) is not 0 else -1
 
-        self.obstacles = [1/obstacle_north, 1/obstacle_north_east, 1/obstacle_east, 1/obstacle_south_east, 1/obstacle_south,
-                          1/obstacle_south_west, 1/obstacle_west, 1/obstacle_north_west]
+        self.obstacles = [10 / obstacle_north, 10 / obstacle_north_east, 10 / obstacle_east, 10 / obstacle_south_east,
+                          10 / obstacle_south,
+                          10 / obstacle_south_west, 10 / obstacle_west, 10 / obstacle_north_west]
 
     def locate_food(self):  # geeft aan of het eten boven/onder link/rechts van de snake ligt
 
@@ -193,8 +197,7 @@ class BrainSnake:
         self.detect_obstacles()
         self.locate_food()
         self.update_dist_to_food()
-
-        self.brain_input = self.obstacles + self.food_quadrant + [1/(1+self.distance_to_food)]  # uiteindelijke input van het NN
+        self.brain_input = self.obstacles + self.food_quadrant + [(10 / self.distance_to_food)]  # uiteindelijke input van het NN
 
     def update_global_fitness(self):  # fitness functies die nog nerggens op slaan
 
@@ -202,12 +205,12 @@ class BrainSnake:
         self.mean_dist.pop()
 
         if self.steps > len(self.mean_dist):
-            self.global_fitness += np.mean(self.mean_dist)
+            self.global_fitness += np.mean(self.mean_dist) * 2
 
         if self.score > 0:
             self.global_fitness += 500 * self.score
             self.score = 0
-        self.global_fitness += 1  # lifetime bonus
+        self.global_fitness += self.steps ** (1 / 10)  # lifetime bonus
         self.prev_dist_to_food = self.distance_to_food
 
     def update_local_fitness(self):  # slaat ook nog nergens op
