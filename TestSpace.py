@@ -33,8 +33,10 @@ while True:
     if snake.move() == 1:
         score += 1
         print('score:  ', score)
+
+    print(snake.brain_input)
     snake.update_brain_input()
-    print(snake.global_fitness, snake.local_fitness)
+    #print(snake.global_fitness, snake.local_fitness)
     snake.update_fitness()
 
     window.fill(pygame.Color(255, 255, 255))
@@ -46,4 +48,4 @@ while True:
         gameOver()
     pygame.display.set_caption('wow snake | score: ' + str(score))
     pygame.display.flip()
-    fps.tick(20)  #speed of the game
+    fps.tick(2)  #speed of the game

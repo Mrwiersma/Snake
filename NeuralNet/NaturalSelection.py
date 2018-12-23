@@ -1,5 +1,6 @@
 import random
 import torch
+import numpy as np
 
 
 class NaturalSelection:
@@ -9,8 +10,8 @@ class NaturalSelection:
         self.nn_layout = None
 
         self.mutating = True
-        self.mutate_chance = 10
-        self.mutate_impact = 0.01
+        self.mutate_chance = 40
+        self.mutate_impact = 0.1
         self.current_population = []
         self.new_population = []
 
@@ -25,9 +26,9 @@ class NaturalSelection:
         self.height = h
 
     def set_mutate_params(self, mutating=True, chance=10, impact=0.1):
-        self.mutating = mutating #of het uberhaupt muteerd
-        self.mutate_chance = chance #de kans dat er gemuteerd wordt
-        self.mutate_impact = impact #de maximale aanpassing (zowel + als -)
+        self.mutating = mutating  # of het uberhaupt muteerd
+        self.mutate_chance = chance  # de kans dat er gemuteerd wordt
+        self.mutate_impact = impact  # de maximale aanpassing (zowel + als -)
 
     def set_nn_layout(self, x):
         self.nn_layout = x
@@ -50,6 +51,7 @@ class NaturalSelection:
 
     def update_elite_weights(self, num):  # slaat alleen de gewichten van de elite op
         self.ranking_list()
+        print(self.ranked_list)
         self.elite_weights = []
         for item in self.ranked_list[:num]:
             self.elite_weights.append(torch.load('NeuralNet/Models/Gen_{}/Snake_{}.pt'.format(self.current_gen, item[0])))
@@ -93,16 +95,28 @@ class NaturalSelection:
         else:
             return 0
 
+    def select_parents(self, parents):
+        self.ranking_list()
+        parent_ids = []
+        ids = np.random.geometric(0.1, len(self.ranked_list))
+        for i in range(0, parents * 2):
+            parent_ids.append(self.ranked_list[ids[i]][0])
+
+        return parent_ids
+
     def create_new_population(self, children, elite):  # dit werkt vgm, maakt nieuwe populatie en set de weights van het NN
         self.new_population_weights = []
         self.new_population = []
         self.children_weights = []
 
+        parents = self.select_parents(children)
+        print(len(parents))
+
         for i in range(0, children):
-            parent1 = random.randint(0, len(self.current_population) - 1)
-            parent2 = random.randint(0, len(self.current_population) - 1)
+            parent1 = parents[i]
+            parent2 = parents[-i]
             while parent2 == parent1:
-                parent2 = random.randint(0, len(self.current_population) - 1)
+                parent2 = random.choice(parents)
             self.breed(parent1, parent2)
 
         self.update_elite_weights(elite)
@@ -110,7 +124,7 @@ class NaturalSelection:
         self.new_population_weights = self.children_weights + self.elite_weights
 
         for i in range(0, len(self.new_population_weights)):
-            new_snake = (self.obj(i, self.current_gen + 1, self.width, self.height,network_layout=self.nn_layout))
+            new_snake = (self.obj(i, self.current_gen + 1, self.width, self.height, network_layout=self.nn_layout))
             new_snake.brain.set_weights(self.new_population_weights[i])
             new_snake.brain.save_model(self.current_gen, i)  # hier wordt uiteindelijk de juiste set gewichten toegewezen
             self.new_population.append(new_snake)

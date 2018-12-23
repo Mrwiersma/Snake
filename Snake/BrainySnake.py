@@ -25,6 +25,8 @@ class BrainSnake:
 
         self.brain_input = []
         self.distance_to_food = 0
+        self.prev_dist_to_food = 0
+        self.mean_dist = [0] * 10
         self.food_quadrant = [-1, -1]
         self.obstacles = [0] * 8
 
@@ -52,7 +54,7 @@ class BrainSnake:
     def get_food_pos(self):
         return self.foodLoc
 
-    def change_dir_to(self, new_direction): #zet uiteindelijke richting rekening houdend met bestaande richting
+    def change_dir_to(self, new_direction):  # zet uiteindelijke richting rekening houdend met bestaande richting
         if new_direction == 'RIGHT' and not self.direction == 'LEFT':
             self.direction = new_direction
         if new_direction == 'LEFT' and not self.direction == 'RIGHT':
@@ -62,11 +64,11 @@ class BrainSnake:
         if new_direction == 'DOWN' and not self.direction == 'UP':
             self.direction = new_direction
 
-    def change_dir_neural(self): #vertaalt NN output tot richting
+    def change_dir_neural(self):  # vertaalt NN output tot richting
         x = self.brain(torch.Tensor(self.brain_input))
-        if x[0] > 0.5 < x[1]:
+        if x[0] > 0.9 < x[1]:
             self.dirNeural -= 1
-        elif x[0] < 0.5 > x[1]:
+        elif x[0] < 0.9 > x[1]:
             self.dirNeural += 1
 
         if self.dirNeural < 0:
@@ -83,7 +85,7 @@ class BrainSnake:
         elif self.dirNeural == 3:
             self.direction = "UP"
 
-    def move(self): #snake doet een stap  en kijkt of hij eten heeft gevonden
+    def move(self):  # snake doet een stap  en kijkt of hij eten heeft gevonden
         if self.direction == "RIGHT":
             self.head[0] += 10
         if self.direction == "LEFT":
@@ -92,15 +94,14 @@ class BrainSnake:
             self.head[1] += 10
         if self.direction == "UP":
             self.head[1] -= 10
-        self.steps += 1 #totaal aantal stappen
-        self.steps_to_food += 1 #stappen sinds vorige eten
+        self.steps += 1  # totaal aantal stappen
+        self.steps_to_food += 1  # stappen sinds vorige eten
         self.body.insert(0, list(self.head))
         if self.head == self.foodLoc:
             self.score += 1
             self.steps_to_food = 0
             self.food_on_screen = False
-            if not self.pvp:
-                self.spawn_food()
+            self.spawn_food()
             return 1
         else:
             self.body.pop()
@@ -119,7 +120,7 @@ class BrainSnake:
                 return 1
         return 0
 
-    def update_wall_array(self): #is nodig voor obstakel detectie, maakt een lijst met alle muren
+    def update_wall_array(self):  # is nodig voor obstakel detectie, maakt een lijst met alle muren
         self.wall_array = []
         for i in range(0, self.MaxHeight, 10):
             self.wall_array.append([-10, i])
@@ -128,7 +129,7 @@ class BrainSnake:
             self.wall_array.append([i, -10])
             self.wall_array.append([i, self.MaxHeight])
 
-    def detect_obstacles(self): #geeft per richting de dichtbijzijnste obstakel
+    def detect_obstacles(self):  # geeft per richting de dichtbijzijnste obstakel
         obstacle_array = self.body[1:] + self.wall_array
 
         north = []
@@ -168,10 +169,10 @@ class BrainSnake:
         obstacle_south_west = min(southwest) if len(southwest) is not 0 else -1
         obstacle_north_west = min(northwest) if len(northwest) is not 0 else -1
 
-        self.obstacles = [obstacle_north, obstacle_north_east, obstacle_east, obstacle_south_east, obstacle_south,
-                          obstacle_south_west, obstacle_west, obstacle_north_west]
+        self.obstacles = [1/obstacle_north, 1/obstacle_north_east, 1/obstacle_east, 1/obstacle_south_east, 1/obstacle_south,
+                          1/obstacle_south_west, 1/obstacle_west, 1/obstacle_north_west]
 
-    def locate_food(self): # geeft aan of het eten boven/onder link/rechts van de snake ligt
+    def locate_food(self):  # geeft aan of het eten boven/onder link/rechts van de snake ligt
 
         if self.head[0] > self.foodLoc[0]:
             self.food_quadrant[0] = 1
@@ -183,37 +184,48 @@ class BrainSnake:
         else:
             self.food_quadrant[1] = 1
 
-    def update_dist_to_food(self): #berekend afstand tot eten
+    def update_dist_to_food(self):  # berekend afstand tot eten
         a = self.head[0] - self.foodLoc[0]
         b = self.head[1] - self.foodLoc[1]
         self.distance_to_food = np.sqrt(a ** 2 + b ** 2)
 
-    def update_brain_input(self): # roept bovenstaande functies aan
+    def update_brain_input(self):  # roept bovenstaande functies aan
         self.detect_obstacles()
         self.locate_food()
         self.update_dist_to_food()
 
-        self.brain_input = self.obstacles + self.food_quadrant + [self.distance_to_food] # uiteindelijke input van het NN
+        self.brain_input = self.obstacles + self.food_quadrant + [1/(1+self.distance_to_food)]  # uiteindelijke input van het NN
 
-    def update_global_fitness(self): #fitness functies die nog nerggens op slaan
-        self.global_fitness = self.score * 1000 - (self.steps * 0.1) + ((1 / self.distance_to_food) * 1000)
+    def update_global_fitness(self):  # fitness functies die nog nerggens op slaan
 
-    def update_local_fitness(self): #slaat ook nog nergens op
-        self.local_fitness = (1 / self.distance_to_food) * 4000 - self.steps
+        self.mean_dist.insert(0, self.prev_dist_to_food - self.distance_to_food)
+        self.mean_dist.pop()
 
-    def update_fitness(self): #update beide fitnesses tegelijk
+        if self.steps > len(self.mean_dist):
+            self.global_fitness += np.mean(self.mean_dist)
+
+        if self.score > 0:
+            self.global_fitness += 500 * self.score
+            self.score = 0
+        self.global_fitness += 1  # lifetime bonus
+        self.prev_dist_to_food = self.distance_to_food
+
+    def update_local_fitness(self):  # slaat ook nog nergens op
+        self.local_fitness = (1 / 1 + self.distance_to_food) * 4000 - self.steps
+
+    def update_fitness(self):  # update beide fitnesses tegelijk
         self.update_local_fitness()
         self.update_global_fitness()
         # print(self.local_fitness, self.global_fitness)
 
-    def terminate_function(self): # kijkt of snake niet te lang niks gegeten heeft
-        if self.steps_to_food > 100+len(self.body):
+    def terminate_function(self):  # kijkt of snake niet te lang niks gegeten heeft
+        if self.steps_to_food > 100 + len(self.body):
             self.is_alive = False
             return 1
         else:
             return 0
 
-    def spawn_food(self): #maakt het eten voor de slang
+    def spawn_food(self):  # maakt het eten voor de slang
         if not self.food_on_screen:
             self.foodLoc = [random.randrange(0, self.MaxWidth / 10) * 10, random.randrange(0, self.MaxHeight / 10) * 10]
             self.food_on_screen = True

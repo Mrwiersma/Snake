@@ -5,10 +5,10 @@ import csv
 import os
 
 # als er nergens een network dict wordt op gegeven, wordt deze gbruikt
-network_dict = {0: {'mode': "Linear", "input": 11, "output": 12, "bias": True, "activation": "ReLU"},
-                1: {'mode': "Linear", "input": -1, "output": 6, "bias": True, "activation": "Sigmoid"},
-                2: {'mode': "Linear", "input": -1, "output": 4, "bias": True, "activation": "Sigmoid"},
-                3: {'mode': "Linear", "input": -1, "output": 2, "bias": True, "activation": "ReLU6"}}
+network_dict = {0: {'mode': "Linear", "input": 11, "output": 12, "bias": True, "activation": "ReLU", "activation_params": []},
+                1: {'mode': "Linear", "input": -1, "output": 6, "bias": True, "activation": "Sigmoid", "activation_params": []},
+                2: {'mode': "Linear", "input": -1, "output": 4, "bias": True, "activation": "Sigmoid", "activation_params": []},
+                3: {'mode': "Linear", "input": -1, "output": 2, "bias": True, "activation": "ReLU6", "activation_params": []}}
 
 # ______HyperParameters________
 LEARNING_RATE = 0.1  # wordt nog niet gebruikt maar
@@ -37,6 +37,7 @@ class Net(nn.Sequential):  # object gebouwd op NN.Sequential van pytorch
     def setup_layers(self, net_dict):  # niet te lang over denken, stelt Layout van NN in
         for count in range(0, len(net_dict)):
             name, in_feat, out_feat, bias = self.get_params(net_dict, count)
+            #print("hardthan")
             act_name, activation = self.get_activation_method(net_dict, count)
             if name == "Linear" + str(count):
                 self.add_module(name, nn.Linear(in_feat, out_feat, bias))
@@ -60,10 +61,15 @@ class Net(nn.Sequential):  # object gebouwd op NN.Sequential van pytorch
         x = _dict[i]['activation']
         if x == "ReLU":
             return "ReLU" + str(i), nn.ReLU()
-        if x == "Sigmoid":
+        elif x == "Sigmoid":
             return "Sigmoid" + str(i), nn.Sigmoid()
-        if x == "ReLU6":
+        elif x == "ReLU6":
             return "ReLU6" + str(i), nn.ReLU6()
+        elif x == "SoftMax":
+            return "SoftMax" + str(i), nn.Softmax()
+        elif x == "HardTanh":
+            params = _dict[i]["activation_params"]
+            return "HardTanh" + str(i), nn.Hardtanh(params[0], params[1], params[2])
 
     def forward(self, x):  # voert data door het hele netwerk heen
         return super().forward(x)
