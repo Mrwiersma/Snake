@@ -46,4 +46,4 @@ while True:
         gameOver()
     pygame.display.set_caption('wow snake | score: ' + str(score))
     pygame.display.flip()
-    fps.tick(20)
+    fps.tick(20)  #speed of the game

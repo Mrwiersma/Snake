@@ -1,5 +1,5 @@
-from Snake.Snake import *
-from NeuralNet.Genetic import *
+from Old.Snake import *
+from Old.Genetic import *
 from Snake.BrainySnake import *
 
 network_dict = {0: {'mode': "Linear", "input": 11, "output": 12, "bias": True, "activation": "ReLU"},
