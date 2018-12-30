@@ -2,15 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0c41813d-9166-4237-8874-654685d2615a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/NeuralNet/ReinforcementNN.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/RLNN.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Snake/RLBrainySnake.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/snake.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/snake.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GeneticRLSnake.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NeuralNet/RLNaturalSelection.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GeneticTestSpace.py" beforeDir="false" afterPath="$PROJECT_DIR$/GeneticTestSpace.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeuralNet/NeuralNet.py" beforeDir="false" afterPath="$PROJECT_DIR$/NeuralNet/NeuralNet.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Snake/BrainySnake.py" beforeDir="false" afterPath="$PROJECT_DIR$/Snake/BrainySnake.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NeuralNet/NaturalSelection.py" beforeDir="false" afterPath="$PROJECT_DIR$/NeuralNet/NaturalSelection.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NeuralNet/ReinforcementNN.py" beforeDir="false" afterPath="$PROJECT_DIR$/NeuralNet/ReinforcementNN.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Snake/RLBrainySnake.py" beforeDir="false" afterPath="$PROJECT_DIR$/Snake/RLBrainySnake.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TestSpace.py" beforeDir="false" afterPath="$PROJECT_DIR$/TestSpace.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -23,22 +20,23 @@
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/snake$reinforcement_test.coverage" NAME="reinforcement test Coverage Results" MODIFIED="1545592588809" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$USER_HOME$/Downloads" />
     <SUITE FILE_PATH="coverage/snake$GeneticTestSpace.coverage" NAME="GeneticTestSpace Coverage Results" MODIFIED="1546010216624" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/snake$TestSpace.coverage" NAME="TestSpace Coverage Results" MODIFIED="1546171167590" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/snake$TestSpace.coverage" NAME="TestSpace Coverage Results" MODIFIED="1546178687172" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/snake$tensor_tutorial.coverage" NAME="tensor_tutorial Coverage Results" MODIFIED="1545586993305" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$USER_HOME$/Downloads" />
     <SUITE FILE_PATH="coverage/snake$BrainySnake.coverage" NAME="BrainySnake Coverage Results" MODIFIED="1546002358550" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Snake" />
+    <SUITE FILE_PATH="coverage/snake$GeneticRLSnake.coverage" NAME="GeneticRLSnake Coverage Results" MODIFIED="1546180122014" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/snake$RLNN.coverage" NAME="RLNN Coverage Results" MODIFIED="1546016129738" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.4519573">
+    <splitter split-orientation="horizontal" split-proportion="0.5">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="GeneticTestSpace.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/GeneticTestSpace.py">
+          <file leaf-file-name="RLBrainySnake.py" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/Snake/RLBrainySnake.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="765">
-                  <caret line="47" column="36" selection-start-line="47" selection-start-column="18" selection-end-line="47" selection-end-column="36" />
+                <state relative-caret-position="192">
+                  <caret line="258" column="33" selection-start-line="258" selection-start-column="33" selection-end-line="258" selection-end-column="33" />
                   <folding>
-                    <element signature="e#0#23#0" expanded="true" />
+                    <element signature="e#0#13#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -47,8 +45,8 @@
           <file leaf-file-name="NaturalSelection.py" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/NeuralNet/NaturalSelection.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1207">
-                  <caret line="73" column="25" selection-start-line="73" selection-start-column="25" selection-end-line="73" selection-end-column="25" />
+                <state relative-caret-position="257">
+                  <caret line="126" selection-start-line="126" selection-end-line="126" />
                   <folding>
                     <element signature="e#0#13#0" expanded="true" />
                   </folding>
@@ -59,8 +57,8 @@
           <file leaf-file-name="NeuralNet.py" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/NeuralNet/NeuralNet.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="714">
-                  <caret line="46" column="70" selection-start-line="46" selection-start-column="70" selection-end-line="46" selection-end-column="70" />
+                <state relative-caret-position="392">
+                  <caret line="101" column="34" selection-start-line="101" selection-start-column="34" selection-end-line="101" selection-end-column="34" />
                   <folding>
                     <element signature="e#0#12#0" expanded="true" />
                   </folding>
@@ -68,6 +66,58 @@
               </provider>
             </entry>
           </file>
+          <file leaf-file-name="GeneticRLSnake.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/GeneticRLSnake.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="765">
+                  <caret line="45" column="33" selection-start-line="45" selection-start-column="33" selection-end-line="45" selection-end-column="33" />
+                  <folding>
+                    <element signature="e#0#23#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="BrainySnake.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/Snake/BrainySnake.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="-2878">
+                  <caret line="54" column="24" selection-start-line="54" selection-start-column="24" selection-end-line="54" selection-end-column="24" />
+                  <folding>
+                    <element signature="e#0#13#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="ReinforcementNN.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/NeuralNet/ReinforcementNN.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="427">
+                  <caret line="40" column="27" selection-start-line="40" selection-start-column="27" selection-end-line="40" selection-end-column="27" />
+                  <folding>
+                    <element signature="e#0#12#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="RLNN.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/RLNN.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="318">
+                  <caret line="64" column="23" selection-start-line="64" selection-start-column="23" selection-end-line="64" selection-end-column="39" />
+                  <folding>
+                    <element signature="e#0#15#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
           <file leaf-file-name="BrainySnake.py" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/Snake/BrainySnake.py">
               <provider selected="true" editor-type-id="text-editor">
@@ -80,23 +130,23 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="ReinforcementNN.py" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/NeuralNet/ReinforcementNN.py">
+          <file leaf-file-name="GeneticTestSpace.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/GeneticTestSpace.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="459">
-                  <caret line="27" column="9" selection-start-line="27" selection-start-column="9" selection-end-line="27" selection-end-column="9" />
+                <state relative-caret-position="311">
+                  <caret line="63" column="51" selection-start-line="63" selection-start-column="48" selection-end-line="63" selection-end-column="51" />
                   <folding>
-                    <element signature="e#0#12#0" expanded="true" />
+                    <element signature="e#0#23#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="TestSpace.py" pinned="false" current-in-tab="false">
+          <file leaf-file-name="TestSpace.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/TestSpace.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="202">
-                  <caret line="34" column="32" selection-start-line="34" selection-start-column="32" selection-end-line="34" selection-end-column="32" />
+                <state relative-caret-position="49">
+                  <caret line="16" selection-start-line="16" selection-end-line="16" />
                   <folding>
                     <element signature="e#0#13#0" expanded="true" />
                   </folding>
@@ -104,27 +154,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="RLNN.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/RLNN.py">
+          <file leaf-file-name="RLNaturalSelection.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/NeuralNet/RLNaturalSelection.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="471">
-                  <caret line="64" column="11" selection-start-line="64" selection-start-column="4" selection-end-line="64" selection-end-column="11" />
-                  <folding>
-                    <element signature="e#0#15#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="RLBrainySnake.py" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/Snake/RLBrainySnake.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="272">
-                  <caret line="85" column="34" selection-start-line="85" selection-start-column="34" selection-end-line="85" selection-end-column="34" />
+                <state relative-caret-position="294">
+                  <caret line="129" column="59" selection-start-line="129" selection-start-column="59" selection-end-line="129" selection-end-column="59" />
                   <folding>
                     <element signature="e#0#13#0" expanded="true" />
                   </folding>
@@ -154,6 +188,9 @@
       <find>rewards</find>
       <find>terminate</find>
       <find>optimizer</find>
+      <find>gen</find>
+      <find>breed</find>
+      <find>save</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -163,14 +200,17 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$USER_HOME$/Downloads/reinforcement test.py" />
-        <option value="$PROJECT_DIR$/NeuralNet/NaturalSelection.py" />
         <option value="$PROJECT_DIR$/Snake/BrainySnakeV2.py" />
         <option value="$PROJECT_DIR$/NeuralNet/NeuralNet.py" />
         <option value="$PROJECT_DIR$/GeneticTestSpace.py" />
         <option value="$PROJECT_DIR$/RLNN.py" />
         <option value="$PROJECT_DIR$/Snake/BrainySnake.py" />
-        <option value="$PROJECT_DIR$/TestSpace.py" />
+        <option value="$PROJECT_DIR$/Snake/BrainSnakeRL.py" />
+        <option value="$PROJECT_DIR$/NeuralNet/NaturalSelection.py" />
         <option value="$PROJECT_DIR$/NeuralNet/ReinforcementNN.py" />
+        <option value="$PROJECT_DIR$/NeuralNet/RLNaturalSelection.py" />
+        <option value="$PROJECT_DIR$/GeneticRLSnake.py" />
+        <option value="$PROJECT_DIR$/TestSpace.py" />
         <option value="$PROJECT_DIR$/Snake/RLBrainySnake.py" />
       </list>
     </option>
@@ -210,6 +250,12 @@
             <path>
               <item name="snake" type="b2602c69:ProjectViewProjectNode" />
               <item name="snake" type="462c0819:PsiDirectoryNode" />
+              <item name="NeuralNet" type="462c0819:PsiDirectoryNode" />
+              <item name="Models" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="snake" type="b2602c69:ProjectViewProjectNode" />
+              <item name="snake" type="462c0819:PsiDirectoryNode" />
               <item name="Snake" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -242,7 +288,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.TestSpace">
+  <component name="RunManager" selected="Python.GeneticRLSnake">
     <configuration name="BrainySnake" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="snake" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -257,6 +303,25 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Snake/BrainySnake.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
+    <configuration name="GeneticRLSnake" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="snake" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/GeneticRLSnake.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -319,39 +384,20 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
-    <configuration name="reinforcement test" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="snake" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$USER_HOME$/Downloads" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$USER_HOME$/Downloads/reinforcement test.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-    </configuration>
     <list>
       <item itemvalue="Python.BrainySnake" />
       <item itemvalue="Python.GeneticTestSpace" />
       <item itemvalue="Python.TestSpace" />
-      <item itemvalue="Python.reinforcement test" />
       <item itemvalue="Python.RLNN" />
+      <item itemvalue="Python.GeneticRLSnake" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.GeneticRLSnake" />
         <item itemvalue="Python.TestSpace" />
         <item itemvalue="Python.RLNN" />
         <item itemvalue="Python.GeneticTestSpace" />
         <item itemvalue="Python.BrainySnake" />
-        <item itemvalue="Python.reinforcement test" />
       </list>
     </recent_temporary>
   </component>
@@ -377,19 +423,19 @@
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
-      <window_info anchor="bottom" id="Database Changes" order="7" />
-      <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Python Console" order="7" weight="0.3286638" />
+      <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" />
+      <window_info anchor="bottom" id="Database Changes" order="9" />
+      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Python Console" order="10" weight="0.3286638" />
       <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.36745688" />
-      <window_info anchor="bottom" id="Terminal" order="7" />
+      <window_info anchor="bottom" id="Terminal" order="11" />
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.102345414" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="right" id="Database" order="3" />
+      <window_info anchor="right" id="Database" order="4" />
       <window_info anchor="right" id="SciView" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39978448" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -407,7 +453,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="3" />
+      <option name="time" value="14" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -475,9 +521,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
           <caret line="23" column="15" selection-start-line="23" selection-start-column="15" selection-end-line="23" selection-end-column="15" />
-          <folding>
-            <element signature="e#0#12#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -601,20 +644,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/GeneticTestSpace.py">
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36/Lib/site-packages/torch/distributions/categorical.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="765">
-          <caret line="47" column="36" selection-start-line="47" selection-start-column="18" selection-end-line="47" selection-end-column="36" />
+        <state relative-caret-position="238">
+          <caret line="109" selection-start-line="109" selection-end-line="109" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Snake/BrainSnakeRL.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="51" selection-start-line="51" selection-end-line="51" />
           <folding>
-            <element signature="e#0#23#0" expanded="true" />
+            <element signature="e#0#13#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/NeuralNet/NaturalSelection.py">
+    <entry file="file://$PROJECT_DIR$/Snake/BrainySnake.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1207">
-          <caret line="73" column="25" selection-start-line="73" selection-start-column="25" selection-end-line="73" selection-end-column="25" />
+        <state relative-caret-position="-2878">
+          <caret line="54" column="24" selection-start-line="54" selection-start-column="24" selection-end-line="54" selection-end-column="24" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
           </folding>
@@ -623,25 +673,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/NeuralNet/NeuralNet.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="714">
-          <caret line="46" column="70" selection-start-line="46" selection-start-column="70" selection-end-line="46" selection-end-column="70" />
+        <state relative-caret-position="392">
+          <caret line="101" column="34" selection-start-line="101" selection-start-column="34" selection-end-line="101" selection-end-column="34" />
           <folding>
             <element signature="e#0#12#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36/Lib/site-packages/torch/distributions/categorical.py">
+    <entry file="file://$PROJECT_DIR$/GeneticTestSpace.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="109" selection-start-line="109" selection-end-line="109" />
+        <state relative-caret-position="311">
+          <caret line="63" column="51" selection-start-line="63" selection-start-column="48" selection-end-line="63" selection-end-column="51" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Snake/BrainySnake.py">
+    <entry file="file://$PROJECT_DIR$/NeuralNet/RLNaturalSelection.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="54" column="24" selection-start-line="54" selection-start-column="24" selection-end-line="54" selection-end-column="24" />
+        <state relative-caret-position="294">
+          <caret line="129" column="59" selection-start-line="129" selection-start-column="59" selection-end-line="129" selection-end-column="59" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
           </folding>
@@ -650,38 +703,58 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/RLNN.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="471">
-          <caret line="64" column="11" selection-start-line="64" selection-start-column="4" selection-end-line="64" selection-end-column="11" />
+        <state relative-caret-position="318">
+          <caret line="64" column="23" selection-start-line="64" selection-start-column="23" selection-end-line="64" selection-end-column="39" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TestSpace.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
-          <caret line="34" column="32" selection-start-line="34" selection-start-column="32" selection-end-line="34" selection-end-column="32" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/NeuralNet/ReinforcementNN.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="27" column="9" selection-start-line="27" selection-start-column="9" selection-end-line="27" selection-end-column="9" />
+        <state relative-caret-position="427">
+          <caret line="40" column="27" selection-start-line="40" selection-start-column="27" selection-end-line="40" selection-end-column="27" />
           <folding>
             <element signature="e#0#12#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/NeuralNet/NaturalSelection.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="257">
+          <caret line="126" selection-start-line="126" selection-end-line="126" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TestSpace.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="49">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GeneticRLSnake.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="765">
+          <caret line="45" column="33" selection-start-line="45" selection-start-column="33" selection-end-line="45" selection-end-column="33" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Snake/RLBrainySnake.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="85" column="34" selection-start-line="85" selection-start-column="34" selection-end-line="85" selection-end-column="34" />
+        <state relative-caret-position="192">
+          <caret line="258" column="33" selection-start-line="258" selection-start-column="33" selection-end-line="258" selection-end-column="33" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
           </folding>

@@ -57,7 +57,6 @@ class NaturalSelection:
             self.elite_weights.append(torch.load('NeuralNet/Models/Gen_{}/Snake_{}.pt'.format(self.current_gen, item[0])))
 
     def breed(self, p1, p2):  # Kindjesssss
-        print(self.current_gen)
         par1 = torch.load('NeuralNet/Models/Gen_{}/Snake_{}.pt'.format(self.current_gen, p1))
         par2 = torch.load('NeuralNet/Models/Gen_{}/Snake_{}.pt'.format(self.current_gen, p2))
         child1 = par1
@@ -109,6 +108,7 @@ class NaturalSelection:
         self.new_population_weights = []
         self.new_population = []
         self.children_weights = []
+        print(" current gen", self.current_gen)
 
         parents = self.select_parents(children)
         print(len(parents))
@@ -123,11 +123,11 @@ class NaturalSelection:
         self.update_elite_weights(elite)
 
         self.new_population_weights = self.children_weights + self.elite_weights
-        print(len(self.new_population_weights))
+
         for i in range(0, len(self.new_population_weights)):
             new_snake = (self.obj(i, self.current_gen + 1, self.width, self.height, network_layout=self.nn_layout))
             new_snake.brain.set_weights(self.new_population_weights[i])
-            new_snake.brain.save_model(self.current_gen, i)  # hier wordt uiteindelijk de juiste set gewichten toegewezen
+            new_snake.brain.save_model(self.current_gen + 1, i)  # hier wordt uiteindelijk de juiste set gewichten toegewezen
             self.new_population.append(new_snake)
 
         self.current_population = self.new_population

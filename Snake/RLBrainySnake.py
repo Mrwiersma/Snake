@@ -21,7 +21,7 @@ class BrainSnake:
         self.time_to_live = 130
 
         self.threshold = 0.6
-        self.scale = 10
+        self.scale = 1
 
         self.foodLoc = [-1, -1]
         self.food_on_screen = False
@@ -48,6 +48,18 @@ class BrainSnake:
         self.generate_brain_input()
         self.optimizer = optim.Adam(self.brain.parameters(), lr=0.01)
         self.eps = np.finfo(np.float32).eps.item()
+        self.bonus = 0
+
+    def reset(self):
+        self.head = [50, 50]
+        self.body = [[50, 50], [40, 50], [30, 50]]
+        self.direction = "RIGHT"
+        self.is_alive = True
+        self.score = 0
+        self.global_fitness = 0
+        self.foodLoc = [-1, -1]
+        self.food_on_screen = False
+        self.spawn_food()
 
     def get_head_pos(self):
         return self.head
@@ -83,9 +95,7 @@ class BrainSnake:
             R = r + 0.99 * R
             rewards.insert(0, R)
         rewards = torch.tensor(rewards)
-        print(" std",rewards.std())
-        rewards = (rewards - rewards.mean()) / (rewards.std() + self.eps)
-        print("reward", rewards)
+        rewards = (rewards) / (rewards.std() + self.eps)
         for log_prob, reward in zip(self.brain.saved_log_probs, rewards):
             policy_loss.append(-log_prob * reward)
         self.optimizer.zero_grad()
@@ -146,18 +156,20 @@ class BrainSnake:
         self.time_to_live -= 1
         self.body.insert(0, list(self.head))
         self.check_collision()
-        self.give_reward()
-        self.update_fitness()
-        if self.steps % 5 == 0:
-            self.finish_episode()
+        # if self.steps % 20 == 0:
+        #     self.finish_episode()
         if self.head == self.foodLoc:
             self.score += 1
             self.time_to_live = 10 * len(self.body) + 100
             self.food_on_screen = False
             self.spawn_food()
+            self.give_reward(True)
+            self.update_fitness()
             return 1
         else:
             self.body.pop()
+            self.give_reward(False)
+            self.update_fitness()
             return 0
 
     def check_collision(self):
@@ -242,17 +254,21 @@ class BrainSnake:
         self.brain_input = self.closest_obstacle + self.food_quadrant + [(self.scale / self.dst_to_food)]
 
     def update_global_fitness(self):
-        pass
+        self.bonus = self.bonus+(1/self.dst_to_food)
+        self.global_fitness = (len(self.body) * 1000) - 3000 + self.bonus
+        #print(self.global_fitness)
+        # print(self.brain.rewards)
 
-    def give_reward(self):
+    def give_reward(self, food):
+        food_bonus = 0
         prev_dst = self.dst_to_food
         self.locate_food()
         progress = prev_dst - self.dst_to_food
-        print(" prog",progress)
         if progress < 0:
             progress = progress * 2
-        print(" progress", progress)
-        reward = progress
+        if food:
+            food_bonus = 1000
+        reward = progress + food_bonus
         self.brain.rewards.append(reward)
 
     def update_fitness(self):
