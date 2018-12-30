@@ -1,4 +1,5 @@
 import random
+import torch
 from NeuralNet.NeuralNet import *
 
 
@@ -44,7 +45,11 @@ class BrainSnake:
             self.brain = Net(network_layout)
         else:
             self.brain = Net()
-        self.brain.save_model(gen, _id)
+
+        if torch.cuda.is_available():
+            #cuda0 = torch.device("cuda:0")
+            self.brain.cuda()
+        # self.brain.save_model(gen, _id)
 
     def get_head_pos(self):
         return self.head
@@ -65,14 +70,30 @@ class BrainSnake:
         if new_direction == 'DOWN' and not self.direction == 'UP':
             self.direction = new_direction
 
+    @staticmethod
+    def calc_chance(x):
+        y = np.random.uniform(0, 1)
+        if x > 0.5 and x > y:
+            return 1
+        else:
+            return 0
+
     def change_dir_neural(self):  # vertaalt NN output tot richting
         x = self.brain(torch.Tensor(self.brain_input))
-        # x = x.detach().numpy()
-        if x[0] > x[1] and x[0] > self.threshold:
-            self.dirNeural -= 1
 
-        elif x[1] > x[0] and x[1] > self.threshold:
+        do_we_move_left = self.calc_chance(x[0])
+        do_we_move_right = self.calc_chance(x[1])
+
+        if do_we_move_left == 1 and do_we_move_right == 0:
+            self.dirNeural -= 1
+        elif do_we_move_right == 1 and do_we_move_left == 0:
             self.dirNeural += 1
+        # # x = x.detach().numpy()
+        # if x[0] > x[1] and x[0] > self.threshold:
+        #     self.dirNeural -= 1
+        #
+        # elif x[1] > x[0] and x[1] > self.threshold:
+        #     self.dirNeural += 1
 
         if self.dirNeural < 0:
             self.dirNeural = 3
@@ -219,10 +240,10 @@ class BrainSnake:
     def update_fitness(self):  # update beide fitnesses tegelijk
         self.update_local_fitness()
         self.update_global_fitness()
-        # print(self.local_fitness, self.global_fitness)
+        # print(self.rewards, self.global_fitness)
 
     def terminate_function(self):  # kijkt of snake niet te lang niks gegeten heeft
-        if self.steps_to_food > 100 + len(self.body):
+        if self.steps_to_food > 100 + len(self.body) * 50:
             self.is_alive = False
             return 1
         else:

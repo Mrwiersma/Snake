@@ -9,7 +9,7 @@ network_dict = {0: {'mode': "Linear", "input": 11, "output": 16, "bias": True, "
                 1: {'mode': "Linear", "input": -1, "output": 2, "bias": True, "activation": "Sigmoid",
                     "activation_params": [0, 1, False]}}
 
-window = pygame.display.set_mode((300, 200))  # groote van t scherm
+window = pygame.display.set_mode((200, 200))  # groote van t scherm
 # (pas op als je dit te klein maakt dan spawned de snake buiten het veld is is die direct dood)
 
 pygame.display.set_caption("wow_snake")
@@ -63,6 +63,6 @@ while True:
             dead = 0
     pygame.display.set_caption('neural snakes | generation {}'.format(current_gen))
     pygame.display.flip()
-    #fps.tick(1)  # max speed of a game
+    #fps.tick(60)  # max speed of a game
     if current_gen >= number_of_generation:
         gameOver()

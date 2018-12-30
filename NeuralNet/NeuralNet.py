@@ -17,6 +17,8 @@ LEARNING_RATE = 0.1  # wordt nog niet gebruikt maar
 class Net(nn.Sequential):  # object gebouwd op NN.Sequential van pytorch
     def __init__(self, x=network_dict):
         super(Net, self).__init__()
+        if x is None:
+            x = network_dict
         self.setup_layers(x)  # initialiseerd alle lagen zoals beschreven in networksdict
 
         # wordt nog niet gebruikt dit. maar is wss later nodig
@@ -43,7 +45,6 @@ class Net(nn.Sequential):  # object gebouwd op NN.Sequential van pytorch
                 self.add_module(name, nn.Linear(in_feat, out_feat, bias))
                 self.add_module(act_name, activation)
         # uiteinelijke layout kan worden geprint met (self.parameters)
-
     # wordt gebruikt voor het uitlezen van de network dict
     @staticmethod
     def get_params(_dict, c):
