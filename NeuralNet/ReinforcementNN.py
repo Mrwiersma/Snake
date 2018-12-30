@@ -25,7 +25,6 @@ class Policy(nn.Module):
         x = self.affine2(self.HardTanh(x))
         # x = self.HardTanh(x)
         x = self.sig(x)
-        #print("x", x)
         return x
 
 
