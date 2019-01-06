@@ -1,6 +1,6 @@
 import pygame
 import sys
-from Snake.RLBrainySnake import *
+from Snake.BrainySnakeV2 import *
 
 window = pygame.display.set_mode((500, 500))
 pygame.display.set_caption("wow_snake")

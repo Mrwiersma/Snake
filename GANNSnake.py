@@ -1,6 +1,6 @@
 from Old.Snake import *
-from NeuralNet.RLNaturalSelection import *
-from Snake.RLBrainySnake import *
+from NeuralNet.NaturalSelectionV2 import *
+from Snake.BrainySnakeV2 import *
 
 # input van het netwerk moet 11 blijven in de eerste laag (gelijk aan de lengte van de Brain_input array in een snake)
 # output van het netwerk moet 2 blijven in de laatste laag (zie uitwerking in brainysnake.change_dir_neural)
@@ -35,7 +35,7 @@ def gameOver():
     pygame.quit()
     sys.exit()
 
-
+tick_speed = 1000
 dead = 0  # set dead snakes to 0
 while True:
     # window.fill(pygame.Color('white'))
@@ -43,21 +43,36 @@ while True:
         print("generation: {} | snake: {}".format(current_gen, snake.ID))
         score = 0
         while snake.is_alive:
+
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    gameOver()
+                elif event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_PAGEDOWN:
+                        tick_speed -= 100
+                        if tick_speed < 10:
+                            tick_speed = 10
+                        print(tick_speed)
+                    if event.key == pygame.K_PAGEUP:
+                        tick_speed += 10
+                        print(tick_speed)
+
             if snake.move() == 1:
                 score += 1
                 print(score)
+
             window.fill(pygame.Color('white'))
             for pos in snake.get_body():
                 pygame.draw.rect(window, pygame.Color(0, 255, 0), pygame.Rect(pos[0], pos[1], 10, 10))
             pygame.draw.rect(window, pygame.Color(255, 0, 0), pygame.Rect(snake.foodLoc[0], snake.foodLoc[1], 10, 10))
-            # fps.tick(1)
+            fps.tick(tick_speed)
             pygame.display.set_caption('neural snakes | generation {}'.format(current_gen))
             pygame.display.flip()
+
     generation_over(current_gen, naturalSelector.high_score)
     naturalSelector.create_new_population(200, 10)  # args(children,elite) !nieuwe populatie is 2Xchildren + elite !
     current_gen += 1
     # dead = 0
 
-    # fps.tick(60)  # max speed of a game
     if current_gen >= number_of_generation:
         gameOver()

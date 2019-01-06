@@ -11,9 +11,9 @@ from torch.distributions import Categorical
 class Policy(nn.Module):
     def __init__(self):
         super(Policy, self).__init__()
-        self.affine1 = nn.Linear(11, 16)
+        self.affine1 = nn.Linear(7, 10)
         self.sigmoid1 = nn.Sigmoid()
-        self.affine2 = nn.Linear(16, 2)
+        self.affine2 = nn.Linear(10, 2)
         self.sigmoid2 = nn.Sigmoid()
         self.HardTanh = nn.Hardtanh(0, 1)
         self.sig = nn.Sigmoid()

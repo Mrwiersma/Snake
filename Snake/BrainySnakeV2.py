@@ -1,5 +1,5 @@
 import random
-from NeuralNet.ReinforcementNN import *
+from NeuralNet.SimpleNN import *
 from torch.distributions import Categorical
 import torch
 
@@ -87,24 +87,24 @@ class BrainSnake:
         self.brain.saved_log_probs.append(m.log_prob(action))
         return action
 
-    def finish_episode(self):
-        R = 0
-        policy_loss = []
-        rewards = []
-        for r in self.brain.rewards[::-1]:
-            R = r + 0.8 * R
-            rewards.insert(0, R)
-        rewards = torch.tensor(rewards)
-        rewards = (rewards) / (rewards.std() + self.eps)
-        for log_prob, reward in zip(self.brain.saved_log_probs, rewards):
-            policy_loss.append(-log_prob * reward)
-        self.optimizer.zero_grad()
-        policy_loss = torch.cat(policy_loss).sum()
-        print(" pol: {} \n".format(policy_loss))
-        policy_loss.backward()
-        self.optimizer.step()
-        del self.brain.rewards[:]
-        del self.brain.saved_log_probs[:]
+    # def finish_episode(self):
+    #     R = 0
+    #     policy_loss = []
+    #     rewards = []
+    #     for r in self.brain.rewards[::-1]:
+    #         R = r + 0.8 * R
+    #         rewards.insert(0, R)
+    #     rewards = torch.tensor(rewards)
+    #     rewards = (rewards) / (rewards.std() + self.eps)
+    #     for log_prob, reward in zip(self.brain.saved_log_probs, rewards):
+    #         policy_loss.append(-log_prob * reward)
+    #     self.optimizer.zero_grad()
+    #     policy_loss = torch.cat(policy_loss).sum()
+    #     print(" pol: {} \n".format(policy_loss))
+    #     policy_loss.backward()
+    #     self.optimizer.step()
+    #     del self.brain.rewards[:]
+    #     del self.brain.saved_log_probs[:]
 
     def set_direction(self):
         action = self.select_action()
@@ -181,7 +181,7 @@ class BrainSnake:
 
     def terminate(self):
         self.is_alive = False
-        self.finish_episode()
+        # self.finish_episode()
 
     def spawn_food(self):
         if not self.food_on_screen:
@@ -207,13 +207,9 @@ class BrainSnake:
         obstacle_array = self.body[1:] + self.wall_array
 
         north = []
-        northeast = []
         east = []
-        southeast = []
         south = []
-        southwest = []
         west = []
-        northwest = []
 
         for item in obstacle_array:
             if self.head[0] == item[0] and self.head[1] - item[1] > 0:
@@ -225,28 +221,12 @@ class BrainSnake:
             elif self.head[1] == item[1] and self.head[0] - item[0] > 0:
                 west.append(self.head[0] - item[0])
 
-            elif self.head[1] - item[1] == self.head[0] - item[0] and (self.head[1] - item[1]) * self.sqrt2 > 0:
-                northwest.append((self.head[1] - item[1]) * self.sqrt2)
-            elif item[1] - self.head[1] == self.head[0] - item[0] and (item[1] - self.head[1]) * self.sqrt2 > 0:
-                southwest.append((item[1] - self.head[1]) * self.sqrt2)
-            elif item[1] - self.head[1] == item[0] - self.head[0] and (item[1] - self.head[1]) * self.sqrt2 > 0:
-                southeast.append((item[1] - self.head[1]) * self.sqrt2)
-            elif self.head[1] - item[1] == item[0] - self.head[0] and (self.head[1] - item[1]) * self.sqrt2 > 0:
-                northeast.append((self.head[1] - item[1]) * self.sqrt2)
-
         obstacle_north = min(north) if len(north) is not 0 else -1
-        obstacle_north_east = min(northeast) if len(northeast) is not 0 else -1
         obstacle_east = min(east) if len(east) is not 0 else -1
-        obstacle_south_east = min(southeast) if len(southeast) is not 0 else -1
         obstacle_south = min(south) if len(south) is not 0 else -1
         obstacle_west = min(west) if len(west) is not 0 else -1
-        obstacle_south_west = min(southwest) if len(southwest) is not 0 else -1
-        obstacle_north_west = min(northwest) if len(northwest) is not 0 else -1
 
-        self.closest_obstacle = [self.scale / obstacle_north, self.scale / obstacle_north_east, self.scale / obstacle_east,
-                                 self.scale / obstacle_south_east,
-                                 self.scale / obstacle_south,
-                                 self.scale / obstacle_south_west, self.scale / obstacle_west, self.scale / obstacle_north_west]
+        self.closest_obstacle = [self.scale / obstacle_north, self.scale / obstacle_east, self.scale / obstacle_south, self.scale / obstacle_west]
 
     def generate_brain_input(self):
         self.locate_food()
