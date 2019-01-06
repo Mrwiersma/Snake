@@ -92,7 +92,7 @@ class BrainSnake:
         policy_loss = []
         rewards = []
         for r in self.brain.rewards[::-1]:
-            R = r + 0.99 * R
+            R = r + 0.8 * R
             rewards.insert(0, R)
         rewards = torch.tensor(rewards)
         rewards = (rewards) / (rewards.std() + self.eps)
@@ -155,7 +155,7 @@ class BrainSnake:
         self.steps += 1
         self.time_to_live -= 1
         self.body.insert(0, list(self.head))
-        self.check_collision()
+        dead = self.check_collision()
         # if self.steps % 20 == 0:
         #     self.finish_episode()
         if self.head == self.foodLoc:
@@ -163,12 +163,12 @@ class BrainSnake:
             self.time_to_live = 10 * len(self.body) + 100
             self.food_on_screen = False
             self.spawn_food()
-            self.give_reward(True)
+            self.give_reward(True, dead)
             self.update_fitness()
             return 1
         else:
             self.body.pop()
-            self.give_reward(False)
+            self.give_reward(False, dead)
             self.update_fitness()
             return 0
 
@@ -176,8 +176,8 @@ class BrainSnake:
         obst = self.wall_array + self.body[1:]
         if self.head in obst:
             self.terminate()
-            return 1
-        return 0
+            return True
+        return False
 
     def terminate(self):
         self.is_alive = False
@@ -254,13 +254,14 @@ class BrainSnake:
         self.brain_input = self.closest_obstacle + self.food_quadrant + [(self.scale / self.dst_to_food)]
 
     def update_global_fitness(self):
-        self.bonus = self.bonus+(1/self.dst_to_food)
+        self.bonus = self.bonus + (1 / self.dst_to_food)
         self.global_fitness = (len(self.body) * 1000) - 3000 + self.bonus
-        #print(self.global_fitness)
+        # print(self.global_fitness)
         # print(self.brain.rewards)
 
-    def give_reward(self, food):
+    def give_reward(self, food, dead):
         food_bonus = 0
+        dead_penalty = 0
         prev_dst = self.dst_to_food
         self.locate_food()
         progress = prev_dst - self.dst_to_food
@@ -268,7 +269,9 @@ class BrainSnake:
             progress = progress * 2
         if food:
             food_bonus = 1000
-        reward = progress + food_bonus
+        if dead:
+            dead_penalty = 10000
+        reward = progress + food_bonus - dead_penalty
         self.brain.rewards.append(reward)
 
     def update_fitness(self):
