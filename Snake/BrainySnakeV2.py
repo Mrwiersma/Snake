@@ -163,12 +163,12 @@ class BrainSnake:
             self.time_to_live = 10 * len(self.body) + 100
             self.food_on_screen = False
             self.spawn_food()
-            self.give_reward(True, dead)
+            # self.give_reward(True, dead)
             self.update_fitness()
             return 1
         else:
             self.body.pop()
-            self.give_reward(False, dead)
+            # self.give_reward(False, dead)
             self.update_fitness()
             return 0
 
@@ -234,25 +234,26 @@ class BrainSnake:
         self.brain_input = self.closest_obstacle + self.food_quadrant + [(self.scale / self.dst_to_food)]
 
     def update_global_fitness(self):
-        self.bonus = self.bonus + (1 / self.dst_to_food)
+        self.bonus = self.bonus + 1
         self.global_fitness = (len(self.body) * 1000) - 3000 + self.bonus
         # print(self.global_fitness)
         # print(self.brain.rewards)
 
-    def give_reward(self, food, dead):
-        food_bonus = 0
-        dead_penalty = 0
-        prev_dst = self.dst_to_food
-        self.locate_food()
-        progress = prev_dst - self.dst_to_food
-        if progress < 0:
-            progress = progress * 2
-        if food:
-            food_bonus = 1000
-        if dead:
-            dead_penalty = 10000
-        reward = progress + food_bonus - dead_penalty
-        self.brain.rewards.append(reward)
+        # def give_reward(self, food, dead):
+        #     food_bonus = 0
+        #     dead_penalty = 0
+        # prev_dst = self.dst_to_food
+        # self.locate_food()
+        # progress = prev_dst - self.dst_to_food
+
+    #     if progress < 0:
+    #         progress = progress * 2
+    #     if food:
+    #         food_bonus = 1000
+    #     if dead:
+    #         dead_penalty = 10000
+    #     reward = progress + food_bonus - dead_penalty
+    #     self.brain.rewards.append(reward)
 
     def update_fitness(self):
         self.update_global_fitness()

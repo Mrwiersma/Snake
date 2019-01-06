@@ -21,7 +21,7 @@ number_of_generation = 30
 w, h = pygame.display.get_surface().get_size()
 naturalSelector = NaturalSelection(BrainSnake, w, h)  # init van het Genetic alg, args ( object, breedte scherm, hoogte scherm)
 naturalSelector.set_nn_layout(network_dict)  # zet de layout van het NeuralNetwerk wat de Snake gebruikt. (zie network_dict)
-naturalSelector.generate_first_population(1000)  # first pop
+naturalSelector.generate_first_population(100)  # first pop
 
 
 def generation_over(gen, highscore):
@@ -70,7 +70,7 @@ while True:
             pygame.display.flip()
 
     generation_over(current_gen, naturalSelector.high_score)
-    naturalSelector.create_new_population(200, 10)  # args(children,elite) !nieuwe populatie is 2Xchildren + elite !
+    naturalSelector.create_new_population(100, 10)  # args(children,elite) !nieuwe populatie is 2Xchildren + elite !
     current_gen += 1
     # dead = 0
 

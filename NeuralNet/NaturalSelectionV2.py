@@ -59,8 +59,8 @@ class NaturalSelection:
     def breed(self, p1, p2):  # Kindjesssss
         par1 = torch.load('NeuralNet/Models/Gen_{}/Snake_{}.pt'.format(self.current_gen, p1))
         par2 = torch.load('NeuralNet/Models/Gen_{}/Snake_{}.pt'.format(self.current_gen, p2))
-        child1 = par1
-        child2 = par2
+        child1 = torch.load('NeuralNet/Models/Gen_{}/Snake_{}.pt'.format(self.current_gen, p1))
+        child2 = torch.load('NeuralNet/Models/Gen_{}/Snake_{}.pt'.format(self.current_gen, p1))
 
         for item in par1:  # Terror maar t werkt
             temp1 = par1[item]
@@ -86,6 +86,7 @@ class NaturalSelection:
         self.children_weights.append(child1)
         self.children_weights.append(child2)
 
+
     def mutate(self):
         if self.mutating:
             if random.uniform(0, 100) < self.mutate_chance:
@@ -95,11 +96,12 @@ class NaturalSelection:
         else:
             return 0
 
-    def select_parents(self, parents):
+    def select_parents(self, num_of_parents):
         self.ranking_list()
         parent_ids = []
-        ids = np.random.geometric(0.1, len(self.ranked_list))
-        for i in range(0, parents * 2):
+        ids = np.random.geometric(0.1, num_of_parents)
+        print(len(ids))
+        for i in range(0, num_of_parents):
             parent_ids.append(self.ranked_list[ids[i]][0])
 
         return parent_ids
