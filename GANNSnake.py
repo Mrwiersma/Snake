@@ -29,7 +29,6 @@ def generation_over(gen, highscore):
     print("Best fitness score of generation {}: {}".format(gen, highscore))
     print('Making new snakes')
 
-
 def gameOver():
     print('game over')
     pygame.quit()
