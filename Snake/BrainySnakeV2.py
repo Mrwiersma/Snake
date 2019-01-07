@@ -9,6 +9,8 @@ class BrainSnake:
         self.MaxWidth = width
         self.MaxHeight = height
 
+        self.static_food_loc = [[60, 60], [50, 20], [70, 40], [50, 70], [30, 60], [60, 80], [90, 90], [70, 50], [30, 10], [30, 30], [50, 70]]
+
         self.head = [50, 50]
         self.body = [[50, 50], [40, 50], [30, 50]]
         self.direction = "RIGHT"
@@ -81,10 +83,19 @@ class BrainSnake:
 
     def select_action(self):
         probs = self.brain(torch.Tensor(self.brain_input))
+        # print(probs)
+        if probs[0] > probs[1] and probs[0] > 0.6:
+            action = [1, 0]
+        elif probs[1] > probs[0] and probs[1] > 0.6:
+            action = [0, 1]
+        else:
+            action = [0, 0]
+        # print(probs)
+
         # if (probs[0] > 0 and probs[1] > 0) or (probs[0] <0 and probs[1] < 0):
-        m = Categorical(probs)
-        action = m.sample([2])
-        self.brain.saved_log_probs.append(m.log_prob(action))
+        # m = Categorical(probs)
+        # action = m.sample([2])
+        # self.brain.saved_log_probs.append(m.log_prob(action))
         return action
 
     # def finish_episode(self):
@@ -143,6 +154,7 @@ class BrainSnake:
 
     def move(self):
         self.generate_brain_input()
+        # print(self.brain_input)
         self.set_direction()
         if self.direction == "RIGHT":
             self.head[0] += 10
@@ -158,6 +170,8 @@ class BrainSnake:
         dead = self.check_collision()
         # if self.steps % 20 == 0:
         #     self.finish_episode()
+        if self.time_to_live < 0:
+            self.terminate()
         if self.head == self.foodLoc:
             self.score += 1
             self.time_to_live = 10 * len(self.body) + 100
@@ -185,7 +199,11 @@ class BrainSnake:
 
     def spawn_food(self):
         if not self.food_on_screen:
-            self.foodLoc = [random.randrange(0, self.MaxWidth / 10) * 10, random.randrange(0, self.MaxHeight / 10) * 10]
+            if self.score < 10:
+                self.foodLoc = self.static_food_loc[self.score]
+            else:
+                self.foodLoc = [random.randrange(0, self.MaxWidth / 10) * 10, random.randrange(0, self.MaxHeight / 10) * 10]
+
             self.food_on_screen = True
 
     def locate_food(self):
@@ -212,21 +230,21 @@ class BrainSnake:
         west = []
 
         for item in obstacle_array:
-            if self.head[0] == item[0] and self.head[1] - item[1] > 0:
+            if self.head[0] == item[0] and 20 >= self.head[1] - item[1] > 0:
                 north.append(self.head[1] - item[1])
-            elif self.head[0] == item[0] and item[1] - self.head[1] > 0:
+            elif self.head[0] == item[0] and 20 >= item[1] - self.head[1] > 0:
                 south.append(item[1] - self.head[1])
-            elif self.head[1] == item[1] and item[0] - self.head[0] > 0:
+            elif self.head[1] == item[1] and 20 >= item[0] - self.head[0] > 0:
                 east.append(item[0] - self.head[0])
-            elif self.head[1] == item[1] and self.head[0] - item[0] > 0:
+            elif self.head[1] == item[1] and 20 >= self.head[0] - item[0] > 0:
                 west.append(self.head[0] - item[0])
 
-        obstacle_north = min(north) if len(north) is not 0 else -1
-        obstacle_east = min(east) if len(east) is not 0 else -1
-        obstacle_south = min(south) if len(south) is not 0 else -1
-        obstacle_west = min(west) if len(west) is not 0 else -1
+        obstacle_north = 10 / min(north) if len(north) is not 0 else 0
+        obstacle_east = 10 / min(east) if len(east) is not 0 else 0
+        obstacle_south = 10 / min(south) if len(south) is not 0 else 0
+        obstacle_west = 10 / min(west) if len(west) is not 0 else 0
 
-        self.closest_obstacle = [self.scale / obstacle_north, self.scale / obstacle_east, self.scale / obstacle_south, self.scale / obstacle_west]
+        self.closest_obstacle = [obstacle_north, obstacle_east, obstacle_south, obstacle_west]
 
     def generate_brain_input(self):
         self.locate_food()
@@ -235,7 +253,7 @@ class BrainSnake:
 
     def update_global_fitness(self):
         self.bonus = self.bonus + 1
-        self.global_fitness = (len(self.body) * 1000) - 3000 + self.bonus
+        self.global_fitness = (self.score * 1000) + self.bonus
         # print(self.global_fitness)
         # print(self.brain.rewards)
 

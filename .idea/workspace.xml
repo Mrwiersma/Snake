@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0c41813d-9166-4237-8874-654685d2615a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GANNSnake.py" beforeDir="false" afterPath="$PROJECT_DIR$/GANNSnake.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/NeuralNet/NaturalSelectionV2.py" beforeDir="false" afterPath="$PROJECT_DIR$/NeuralNet/NaturalSelectionV2.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Snake/BrainySnakeV2.py" beforeDir="false" afterPath="$PROJECT_DIR$/Snake/BrainySnakeV2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestSpace.py" beforeDir="false" afterPath="$PROJECT_DIR$/TestSpace.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -16,37 +18,34 @@
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/snake$reinforcement_test.coverage" NAME="reinforcement test Coverage Results" MODIFIED="1545592588809" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$USER_HOME$/Downloads" />
     <SUITE FILE_PATH="coverage/snake$GeneticTestSpace.coverage" NAME="GeneticTestSpace Coverage Results" MODIFIED="1546010216624" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/snake$TestSpace.coverage" NAME="TestSpace Coverage Results" MODIFIED="1546778271926" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/snake$TestSpace.coverage" NAME="TestSpace Coverage Results" MODIFIED="1546859583449" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/snake$tensor_tutorial.coverage" NAME="tensor_tutorial Coverage Results" MODIFIED="1545586993305" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$USER_HOME$/Downloads" />
     <SUITE FILE_PATH="coverage/snake$BrainySnake.coverage" NAME="BrainySnake Coverage Results" MODIFIED="1546002358550" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Snake" />
     <SUITE FILE_PATH="coverage/snake$GeneticRLSnake.coverage" NAME="GeneticRLSnake Coverage Results" MODIFIED="1546781415248" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/snake$RLNN.coverage" NAME="RLNN Coverage Results" MODIFIED="1546016129738" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/snake$GANNSnake.coverage" NAME="GANNSnake Coverage Results" MODIFIED="1546783880053" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/snake$GANNSnake.coverage" NAME="GANNSnake Coverage Results" MODIFIED="1546872926784" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="FileEditorManager">
     <splitter split-orientation="horizontal" split-proportion="0.5812343">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="BrainySnakeV2.py" pinned="false" current-in-tab="true">
+          <file leaf-file-name="BrainySnakeV2.py" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/Snake/BrainySnakeV2.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="160">
-                  <caret line="166" column="12" selection-start-line="166" selection-start-column="12" selection-end-line="166" selection-end-column="12" />
+                <state relative-caret-position="206">
+                  <caret line="254" column="35" selection-start-line="254" selection-start-column="35" selection-end-line="254" selection-end-column="35" />
                   <folding>
                     <element signature="e#0#13#0" expanded="true" />
-                    <element signature="e#1677#1693#0" />
-                    <element signature="e#1727#1743#0" />
-                    <element signature="e#1781#1800#0" />
                   </folding>
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="GANNSnake.py" pinned="false" current-in-tab="false">
+          <file leaf-file-name="GANNSnake.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/GANNSnake.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="509">
-                  <caret line="72" column="43" selection-start-line="72" selection-start-column="43" selection-end-line="72" selection-end-column="43" />
+                <state relative-caret-position="597">
+                  <caret line="76" column="50" selection-start-line="76" selection-start-column="50" selection-end-line="76" selection-end-column="50" />
                   <folding>
                     <element signature="e#0#23#0" expanded="true" />
                   </folding>
@@ -57,7 +56,7 @@
           <file leaf-file-name="SimpleNN.py" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/NeuralNet/SimpleNN.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="560">
+                <state relative-caret-position="407">
                   <caret line="33" column="33" selection-start-line="33" selection-start-column="29" selection-end-line="33" selection-end-column="33" />
                   <folding>
                     <element signature="e#0#12#0" expanded="true" />
@@ -73,7 +72,7 @@
           <file leaf-file-name="TestSpace.py" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/TestSpace.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="17">
+                <state relative-caret-position="68">
                   <caret line="4" column="40" selection-start-line="4" selection-start-column="40" selection-end-line="4" selection-end-column="40" />
                   <folding>
                     <element signature="e#0#13#0" expanded="true" />
@@ -85,8 +84,8 @@
           <file leaf-file-name="NaturalSelectionV2.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/NeuralNet/NaturalSelectionV2.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="169">
-                  <caret line="87" selection-start-line="87" selection-end-line="87" />
+                <state relative-caret-position="1923">
+                  <caret line="125" column="42" selection-start-line="120" selection-start-column="10" selection-end-line="125" selection-end-column="42" />
                   <folding>
                     <element signature="e#0#13#0" expanded="true" />
                   </folding>
@@ -136,14 +135,14 @@
         <option value="$PROJECT_DIR$/Snake/BrainSnakeRL.py" />
         <option value="$PROJECT_DIR$/NeuralNet/NaturalSelection.py" />
         <option value="$PROJECT_DIR$/NeuralNet/RLNaturalSelection.py" />
-        <option value="$PROJECT_DIR$/TestSpace.py" />
         <option value="$PROJECT_DIR$/Old/snaketest.py" />
         <option value="$PROJECT_DIR$/Snake/RLBrainySnake.py" />
         <option value="$PROJECT_DIR$/NeuralNet/ReinforcementNN.py" />
         <option value="$PROJECT_DIR$/GeneticRLSnake.py" />
-        <option value="$PROJECT_DIR$/GANNSnake.py" />
+        <option value="$PROJECT_DIR$/TestSpace.py" />
         <option value="$PROJECT_DIR$/NeuralNet/NaturalSelectionV2.py" />
         <option value="$PROJECT_DIR$/Snake/BrainySnakeV2.py" />
+        <option value="$PROJECT_DIR$/GANNSnake.py" />
       </list>
     </option>
   </component>
@@ -177,6 +176,12 @@
               <item name="snake" type="b2602c69:ProjectViewProjectNode" />
               <item name="snake" type="462c0819:PsiDirectoryNode" />
               <item name="NeuralNet" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="snake" type="b2602c69:ProjectViewProjectNode" />
+              <item name="snake" type="462c0819:PsiDirectoryNode" />
+              <item name="NeuralNet" type="462c0819:PsiDirectoryNode" />
+              <item name="Models" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="snake" type="b2602c69:ProjectViewProjectNode" />
@@ -326,8 +331,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.GANNSnake" />
-        <item itemvalue="Python.GeneticRLSnake" />
         <item itemvalue="Python.TestSpace" />
+        <item itemvalue="Python.GeneticRLSnake" />
         <item itemvalue="Python.RLNN" />
         <item itemvalue="Python.GeneticTestSpace" />
       </list>
@@ -358,9 +363,9 @@
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Python Console" order="10" weight="0.3286638" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.1799569" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.1799569" />
       <window_info anchor="bottom" id="Terminal" order="11" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15351813" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15511727" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="4" />
       <window_info anchor="right" id="SciView" order="3" weight="0.32995737" />
@@ -376,27 +381,27 @@
       <window_info anchor="bottom" id="Find" order="1" weight="0.3297414" />
     </layout>
     <layout-to-restore>
+      <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15351813" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" id="SciView" order="3" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.1799569" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15351813" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.1799569" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.3297414" />
-      <window_info anchor="bottom" id="Python Console" order="10" weight="0.3286638" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39978448" />
       <window_info anchor="right" id="Database" order="4" />
       <window_info anchor="bottom" id="Terminal" order="11" />
       <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Database Changes" order="9" />
+      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="right" id="SciView" order="3" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3297414" />
+      <window_info anchor="bottom" id="Python Console" order="10" weight="0.3286638" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -428,9 +433,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="918">
           <caret line="54" column="24" selection-start-line="54" selection-start-column="24" selection-end-line="54" selection-end-column="24" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -438,9 +440,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1037">
           <caret line="63" column="51" selection-start-line="63" selection-start-column="48" selection-end-line="63" selection-end-column="51" />
-          <folding>
-            <element signature="e#0#23#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -470,9 +469,6 @@
           <caret line="258" column="9" selection-start-line="258" selection-start-column="9" selection-end-line="258" selection-end-column="9" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
-            <element signature="e#1677#1693#0" />
-            <element signature="e#1727#1743#0" />
-            <element signature="e#1781#1800#0" />
           </folding>
         </state>
       </provider>
@@ -481,9 +477,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2142">
           <caret line="126" selection-start-line="126" selection-end-line="126" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -521,9 +514,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1088">
           <caret line="64" column="23" selection-start-line="64" selection-start-column="23" selection-end-line="64" selection-end-column="39" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -531,9 +521,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="918">
           <caret line="54" column="24" selection-start-line="54" selection-start-column="24" selection-end-line="54" selection-end-column="24" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -541,9 +528,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1071">
           <caret line="63" column="51" selection-start-line="63" selection-start-column="48" selection-end-line="63" selection-end-column="51" />
-          <folding>
-            <element signature="e#0#23#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -571,9 +555,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="765">
           <caret line="47" column="36" selection-start-line="47" selection-start-column="18" selection-end-line="47" selection-end-column="36" />
-          <folding>
-            <element signature="e#0#23#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -581,9 +562,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1207">
           <caret line="73" column="25" selection-start-line="73" selection-start-column="25" selection-end-line="73" selection-end-column="25" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -601,9 +579,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="884">
           <caret line="54" column="24" lean-forward="true" selection-start-line="54" selection-start-column="24" selection-end-line="54" selection-end-column="24" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -621,9 +596,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1275">
           <caret line="84" column="26" selection-start-line="84" selection-start-column="19" selection-end-line="84" selection-end-column="26" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -640,9 +612,6 @@
           <caret line="70" column="58" selection-start-line="70" selection-start-column="58" selection-end-line="70" selection-end-column="58" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
-            <element signature="e#1677#1693#0" />
-            <element signature="e#1727#1743#0" />
-            <element signature="e#1781#1800#0" />
           </folding>
         </state>
       </provider>
@@ -651,9 +620,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="11" column="40" selection-start-line="11" selection-start-column="40" selection-end-line="11" selection-end-column="40" />
-          <folding>
-            <element signature="e#0#23#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -661,9 +627,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1207">
           <caret line="73" column="25" selection-start-line="73" selection-start-column="25" selection-end-line="73" selection-end-column="25" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -681,9 +644,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
           <caret line="17" column="28" selection-start-line="17" selection-start-column="28" selection-end-line="17" selection-end-column="28" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -701,9 +661,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1071">
           <caret line="65" column="5" selection-start-line="65" selection-start-column="5" selection-end-line="65" selection-end-column="5" />
-          <folding>
-            <element signature="e#0#23#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -711,9 +668,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="952">
           <caret line="58" column="36" selection-start-line="58" selection-start-column="36" selection-end-line="58" selection-end-column="36" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -741,9 +695,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3332">
           <caret line="197" column="26" lean-forward="true" selection-start-line="197" selection-start-column="26" selection-end-line="197" selection-end-column="26" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -779,9 +730,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="935">
           <caret line="64" column="23" selection-start-line="64" selection-start-column="23" selection-end-line="64" selection-end-column="39" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -789,9 +737,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2142">
           <caret line="126" selection-start-line="126" selection-end-line="126" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -799,9 +744,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="918">
           <caret line="54" column="24" selection-start-line="54" selection-start-column="24" selection-end-line="54" selection-end-column="24" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -810,9 +752,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="308">
           <caret line="206" column="26" selection-start-line="195" selection-start-column="4" selection-end-line="206" selection-end-column="43" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -820,29 +759,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-273">
           <caret line="7" column="47" selection-start-line="7" selection-start-column="47" selection-end-line="7" selection-end-column="47" />
-          <folding>
-            <element signature="e#0#23#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TestSpace.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="4" column="40" selection-start-line="4" selection-start-column="40" selection-end-line="4" selection-end-column="40" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/NeuralNet/SimpleNN.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="560">
-          <caret line="33" column="33" selection-start-line="33" selection-start-column="29" selection-end-line="33" selection-end-column="33" />
-          <folding>
-            <element signature="e#0#12#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -853,10 +769,40 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/TestSpace.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="40" selection-start-line="4" selection-start-column="40" selection-end-line="4" selection-end-column="40" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/NeuralNet/SimpleNN.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="407">
+          <caret line="33" column="33" selection-start-line="33" selection-start-column="29" selection-end-line="33" selection-end-column="33" />
+          <folding>
+            <element signature="e#0#12#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/NeuralNet/NaturalSelectionV2.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="87" selection-start-line="87" selection-end-line="87" />
+        <state relative-caret-position="1923">
+          <caret line="125" column="42" selection-start-line="120" selection-start-column="10" selection-end-line="125" selection-end-column="42" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Snake/BrainySnakeV2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="206">
+          <caret line="254" column="35" selection-start-line="254" selection-start-column="35" selection-end-line="254" selection-end-column="35" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
           </folding>
@@ -865,23 +811,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/GANNSnake.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="509">
-          <caret line="72" column="43" selection-start-line="72" selection-start-column="43" selection-end-line="72" selection-end-column="43" />
+        <state relative-caret-position="597">
+          <caret line="76" column="50" selection-start-line="76" selection-start-column="50" selection-end-line="76" selection-end-column="50" />
           <folding>
             <element signature="e#0#23#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Snake/BrainySnakeV2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="166" column="12" selection-start-line="166" selection-start-column="12" selection-end-line="166" selection-end-column="12" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-            <element signature="e#1677#1693#0" />
-            <element signature="e#1727#1743#0" />
-            <element signature="e#1781#1800#0" />
           </folding>
         </state>
       </provider>

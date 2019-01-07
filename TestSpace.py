@@ -2,7 +2,7 @@ import pygame
 import sys
 from Snake.BrainySnakeV2 import *
 
-window = pygame.display.set_mode((500, 500))
+window = pygame.display.set_mode((200, 200))
 pygame.display.set_caption("wow_snake")
 fps = pygame.time.Clock()
 score = 0
@@ -20,7 +20,7 @@ def gameOver():
     pygame.quit()
     sys.exit()
 
-tickspeed  = 10
+tickspeed  = 10000
 
 while True:
     if snake.move() == 1:
@@ -43,10 +43,10 @@ while True:
         if event.type == pygame.QUIT:
             gameOver()
         elif event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_RIGHT:
+            if event.key == pygame.K_PAGEUP:
                 tickspeed += 10
                 print(tickspeed)
-            if event.key == pygame.K_LEFT:
+            if event.key == pygame.K_PAGEDOWN:
                 tickspeed -= 100
                 print(tickspeed)
     fps.tick(tickspeed)  # speed of the game

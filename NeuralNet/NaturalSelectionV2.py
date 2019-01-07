@@ -86,7 +86,6 @@ class NaturalSelection:
         self.children_weights.append(child1)
         self.children_weights.append(child2)
 
-
     def mutate(self):
         if self.mutating:
             if random.uniform(0, 100) < self.mutate_chance:
@@ -115,12 +114,16 @@ class NaturalSelection:
         parents = self.select_parents(children)
         print(len(parents))
 
-        for i in range(0, children):
-            parent1 = parents[i]
-            parent2 = parents[-i]
-            while parent2 == parent1:
-                parent2 = random.choice(parents)
+        while len(parents) > 0:
+            parent1 = parents.pop()
+            parent2 = parents.pop()
             self.breed(parent1, parent2)
+        # for i in range(0, children):
+        #     parent1 = parents[i]
+        #     parent2 = parents[-i]
+        #     while parent2 == parent1:
+        #         parent2 = random.choice(parents)
+        #     self.breed(parent1, parent2)
 
         self.update_elite_weights(elite)
 

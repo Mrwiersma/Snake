@@ -9,7 +9,7 @@ network_dict = {0: {'mode': "Linear", "input": 11, "output": 16, "bias": True, "
                 1: {'mode': "Linear", "input": -1, "output": 2, "bias": True, "activation": "Sigmoid",
                     "activation_params": [0, 1, False]}}
 
-window = pygame.display.set_mode((300, 300))  # groote van t scherm
+window = pygame.display.set_mode((100, 100))  # groote van t scherm
 # (pas op als je dit te klein maakt dan spawned de snake buiten het veld is is die direct dood)
 
 pygame.display.set_caption("wow_snake")
@@ -21,7 +21,7 @@ number_of_generation = 30
 w, h = pygame.display.get_surface().get_size()
 naturalSelector = NaturalSelection(BrainSnake, w, h)  # init van het Genetic alg, args ( object, breedte scherm, hoogte scherm)
 naturalSelector.set_nn_layout(network_dict)  # zet de layout van het NeuralNetwerk wat de Snake gebruikt. (zie network_dict)
-naturalSelector.generate_first_population(100)  # first pop
+naturalSelector.generate_first_population(2000)  # first pop
 
 
 def generation_over(gen, highscore):
@@ -35,7 +35,7 @@ def gameOver():
     pygame.quit()
     sys.exit()
 
-tick_speed = 1000
+tick_speed = 5000
 dead = 0  # set dead snakes to 0
 while True:
     # window.fill(pygame.Color('white'))
@@ -49,14 +49,18 @@ while True:
                     gameOver()
                 elif event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_PAGEDOWN:
-                        tick_speed -= 100
+                        tick_speed -= 1000
                         if tick_speed < 10:
                             tick_speed = 10
                         print(tick_speed)
                     if event.key == pygame.K_PAGEUP:
+                        tick_speed += 1000
+                    if event.key == pygame.K_UP:
                         tick_speed += 10
                         print(tick_speed)
-
+                    if event.key == pygame.K_DOWN:
+                        tick_speed -= 10
+                        print(tick_speed)
             if snake.move() == 1:
                 score += 1
                 print(score)
@@ -70,7 +74,7 @@ while True:
             pygame.display.flip()
 
     generation_over(current_gen, naturalSelector.high_score)
-    naturalSelector.create_new_population(100, 10)  # args(children,elite) !nieuwe populatie is 2Xchildren + elite !
+    naturalSelector.create_new_population(2000, 100)  # args(children,elite) !nieuwe populatie is 2Xchildren + elite !
     current_gen += 1
     # dead = 0
 
