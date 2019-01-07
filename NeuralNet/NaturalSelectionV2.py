@@ -138,3 +138,6 @@ class NaturalSelection:
         self.current_population = self.new_population
         self.current_gen += 1
         self.new_population = []
+
+    def save_generation_scores(self):
+        pass

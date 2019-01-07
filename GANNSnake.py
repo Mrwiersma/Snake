@@ -28,12 +28,14 @@ def generation_over(gen, highscore):
     print('All snakes of generation {} are dead.'.format(gen))
     print("Best fitness score of generation {}: {}".format(gen, highscore))
     print('Making new snakes')
+    naturalSelector.save_generation_scores()
 
 
 def gameOver():
     print('game over')
     pygame.quit()
     sys.exit()
+
 
 tick_speed = 5000
 dead = 0  # set dead snakes to 0
