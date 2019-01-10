@@ -1,6 +1,6 @@
 from Old.Snake import *
 from Old.Genetic import *
-from Snake.BrainySnake import *
+from Old.BrainySnake import *
 
 network_dict = {0: {'mode': "Linear", "input": 11, "output": 12, "bias": True, "activation": "ReLU"},
                 1: {'mode': "Linear", "input": -1, "output": 6, "bias": True, "activation": "Sigmoid"},
@@ -45,9 +45,9 @@ def gameOver():
 #         pygame.draw.rect(window, pygame.Color(0, 255, 0), pygame.Rect(pos[0], pos[1], 10, 10))
 #     pygame.draw.rect(window, pygame.Color(255, 0, 0), pygame.Rect(foodPos[0], foodPos[1], 10, 10))
 #     if snake.check_collision() == 1:
-#         gameOver()
+#         game_over()
 #     if snake.terminate_function():
-#         gameOver()
+#         game_over()
 #     pygame.display.set_caption('wow snake | score: ' + str(score))
 #     pygame.display.flip()
 #     fps.tick(2000)

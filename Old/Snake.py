@@ -1,9 +1,5 @@
 import random
-import pygame
-import sys
-import time
-import numpy as np
-from NeuralNet.NeuralNet import *
+from Old.NeuralNet import *
 
 
 class Snake:

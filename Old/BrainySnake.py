@@ -1,6 +1,5 @@
 import random
-import torch
-from NeuralNet.NeuralNet import *
+from Old.NeuralNet import *
 
 
 class BrainSnake:

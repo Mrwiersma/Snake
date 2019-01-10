@@ -1,6 +1,6 @@
 from Old.Snake import *
-from NeuralNet.NaturalSelection import *
-from Snake.BrainySnake import *
+from Old.NaturalSelection import *
+from Old.BrainySnake import *
 
 # input van het netwerk moet 11 blijven in de eerste laag (gelijk aan de lengte van de Brain_input array in een snake)
 # output van het netwerk moet 2 blijven in de laatste laag (zie uitwerking in brainysnake.change_dir_neural)
