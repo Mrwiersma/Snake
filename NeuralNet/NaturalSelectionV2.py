@@ -16,10 +16,12 @@ class NaturalSelection:
         self.new_population = []
 
         self.ranked_list = []
+        self.all_scores = []
 
         self.new_population_weights = []
         self.children_weights = []
         self.elite_weights = []
+
 
         self.obj = obj
         self.width = w
@@ -48,6 +50,10 @@ class NaturalSelection:
 
         self.ranked_list.sort(key=lambda x: int(x[1]), reverse=True)
         self.high_score = self.ranked_list[0]
+        self.add_to_all_scores()
+
+    def add_to_all_scores(self):
+        self.all_scores.append(self.ranked_list)
 
     def update_elite_weights(self, num):
         self.ranking_list()

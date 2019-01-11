@@ -3,12 +3,13 @@ import sys
 from NeuralNet.NaturalSelectionV2 import *
 from Snake.BrainySnakeV2 import *
 from Snake_visualizer import *
+import matplotlib.pyplot as plt
 
 network_dict = {0: {'mode': "Linear", "input": 11, "output": 16, "bias": True, "activation": "Sigmoid", "activation_params": []},
                 1: {'mode': "Linear", "input": -1, "output": 2, "bias": True, "activation": "Sigmoid",
                     "activation_params": [0, 1, False]}}
 
-window = pygame.display.set_mode((1000, 800))
+window = pygame.display.set_mode((150, 220))
 
 pygame.display.set_caption("wow_snake")
 fps = pygame.time.Clock()
@@ -39,12 +40,20 @@ def set_game_tick(step, cur_tick):
     tick += step
     if tick <= 0:
         tick = 10
-    print(tick)
+    print("Game_tick: ", tick)
     return tick
 
 
-def plot_all_scores(ranked=True):
-    pass
+def plot_all_scores():
+    list = naturalSelector.all_scores
+    for gen in list:
+        data = []
+        for item in gen:
+            data.append(item[1])
+        plt.plot(data)
+        plt.ylabel("score")
+        plt.xlabel("snakes")
+    plt.show()
 
 
 def plot_high_scores(gen):
@@ -56,13 +65,12 @@ show_info = True
 show_vision = False
 general_info = GeneralVisualiser(window, origin=(0, 0))
 while True:
-
     window.fill(pygame.Color("white"))
     general_info.show_general_info(current_gen)
-    pygame.display.set_caption('neural snakes | generation {}'.format(current_gen))
+    pygame.display.set_caption('GA_Snake | generation {}'.format(current_gen))
 
     for snake in naturalSelector.current_population:  # TQDM loop
-        print("generation: {} | snake: {}".format(current_gen, snake.ID))
+        # print("generation: {} | snake: {}".format(current_gen, snake.ID))
         score = 0
         visualizer = SnakeVisualizer(snake, window, origin=(10, 25))
         while snake.is_alive:
@@ -90,7 +98,7 @@ while True:
 
             if snake.move() == 1:
                 score += 1
-                print(score)
+                #print(score)
 
             visualizer.show_snake()
             if show_vision:
@@ -101,8 +109,9 @@ while True:
             fps.tick(tick_speed)
             pygame.display.flip()
 
+    plot_all_scores()
     generation_over(current_gen, naturalSelector.high_score)
-    naturalSelector.create_new_population(3000, 100)
+    naturalSelector.create_new_population(3000, 150)
     current_gen += 1
 
     if current_gen >= number_of_generation:

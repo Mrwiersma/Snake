@@ -59,15 +59,16 @@ class SnakeVisualizer:
         snake_id = self.font.render("Snake_ID: {}".format(self.snake.ID), True, (0, 0, 0))
         snake_time_to_live = self.font.render("Time to live: {}".format(self.snake.time_to_live), True, (0, 0, 0))
         snake_fitness = self.font.render("Fitness: {}".format(self.snake.global_fitness), True, (0, 0, 0))
+        current_score = self.font.render("Score: {}".format(self.snake.score), True, (0, 0, 0))
         food_loc = self.snake.food_quadrant
         if food_loc[1] == 1:
-            food_n_s = "N"
-        else:
             food_n_s = "S"
-        if food_loc[0] == 1:
-            food_e_w = "W"
         else:
+            food_n_s = "N"
+        if food_loc[0] == 1:
             food_e_w = "E"
+        else:
+            food_e_w = "W"
         snake_food_loc = self.font.render("Food location : [{}/{}]".format(food_n_s, food_e_w), True, (0, 0, 0))
 
         snake_window_height = self.snake.MaxHeight
@@ -76,6 +77,7 @@ class SnakeVisualizer:
         self.window.blit(snake_time_to_live, (self.origin[0] - 10, self.origin[1] + snake_window_height + off_set + self.text_size))
         self.window.blit(snake_fitness, (self.origin[0] - 10, self.origin[1] + snake_window_height + off_set + self.text_size * 2))
         self.window.blit(snake_food_loc, (self.origin[0] - 10, self.origin[1] + snake_window_height + off_set + self.text_size * 3))
+        self.window.blit(current_score, (self.origin[0] - 10, self.origin[1] + snake_window_height + off_set + self.text_size * 4))
 
 
 class NeuralNetVisualizer:
