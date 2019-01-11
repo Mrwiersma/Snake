@@ -26,6 +26,7 @@ class BrainSnake:
         self.threshold = 0.6
         self.vision_range = 20
         self.input_scale = 10
+        self.vision = []
 
         self.foodLoc = [-1, -1]
         self.food_on_screen = False
@@ -67,6 +68,12 @@ class BrainSnake:
 
     def get_food_pos(self):
         return self.foodLoc
+
+    def get_walls(self):
+        return self.wall_array
+
+    def get_vision(self):
+        return self.vision
 
     def set_walls(self):
         self.wall_array = []
@@ -177,10 +184,11 @@ class BrainSnake:
 
         a = self.head[0] - self.foodLoc[0]
         b = self.head[1] - self.foodLoc[1]
-        self.dst_to_food = self.input_scale/(np.sqrt(a ** 2 + b ** 2))
+        self.dst_to_food = self.input_scale / (np.sqrt(a ** 2 + b ** 2))
 
     def detect_obstacles(self):
         obstacle_array = self.body[1:] + self.wall_array
+        self.vision = []
 
         north = []
         east = []
@@ -190,12 +198,16 @@ class BrainSnake:
         for item in obstacle_array:
             if self.head[0] == item[0] and self.vision_range >= self.head[1] - item[1] > 0:
                 north.append(self.head[1] - item[1])
+                self.vision.append(item)
             elif self.head[0] == item[0] and self.vision_range >= item[1] - self.head[1] > 0:
                 south.append(item[1] - self.head[1])
+                self.vision.append(item)
             elif self.head[1] == item[1] and self.vision_range >= item[0] - self.head[0] > 0:
                 east.append(item[0] - self.head[0])
+                self.vision.append(item)
             elif self.head[1] == item[1] and self.vision_range >= self.head[0] - item[0] > 0:
                 west.append(self.head[0] - item[0])
+                self.vision.append(item)
 
         obstacle_north = self.input_scale / min(north) if len(north) is not 0 else 0
         obstacle_east = self.input_scale / min(east) if len(east) is not 0 else 0
